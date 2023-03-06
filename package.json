@@ -5,5 +5,11 @@
   "scripts": {
     "start": "ts-node-dev src/main.ts"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^10.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.2"
+  }
 }
