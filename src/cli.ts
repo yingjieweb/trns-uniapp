@@ -1,3 +1,4 @@
+#!/use/bi/env node
 import * as commander from "commander";
 import { translate } from "./main";
 
