@@ -18,10 +18,20 @@ export const translate = (word: string) => {
   const salt = Math.random()
   const sign = md5(appId + word + salt + appSecret)
 
+  let from, to
+
+  if (/[a-zA-Z]/.test(word[0])) {
+    from = 'en'
+    to = 'zh'
+  } else {
+    from = 'zh'
+    to = 'en'
+  }
+
   const query: string = querystring.stringify({
     q: word,
-    from: 'en',
-    to: 'zh',
+    from,
+    to,
     appid: appId,
     salt: salt,
     sign: sign
@@ -46,7 +56,9 @@ export const translate = (word: string) => {
         console.log(transRes.error_msg);
         process.exit(2)
       } else {
-        console.log(transRes.trans_result[0].dst);
+        transRes.trans_result.map(item => {
+          console.log(item.dst);
+        })
         process.exit(0)
       }
     })
