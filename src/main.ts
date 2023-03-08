@@ -45,8 +45,8 @@ export const translate = (word: string) => {
   }
 
   const request = https.request(options, (response) => {
-    const chunks: any = []
-    response.on('data', (chunk) => {
+    const chunks: Buffer[] = []
+    response.on('data', (chunk: Buffer) => {
       chunks.push(chunk);
     })
     response.on('end', () => {
