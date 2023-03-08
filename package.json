@@ -2,6 +2,12 @@
   "name": "trns-mini",
   "version": "0.0.1",
   "main": "index.js",
+  "bin": {
+    "trns": "src/cli.ts"
+  },
+  "files": [
+    "dist/*.js"
+  ],
   "scripts": {
     "start": "ts-node-dev src/main.ts"
   },
